@@ -11,6 +11,21 @@ The goal is to convert the numbers (string) set to text.
 
 . [INTL PHP Extension](http://php.net/manual/pt_BR/book.intl.php)
 
+## Install package
+
+```
+composer require diego-brocanelli/money_to_word dev-master
+```
+
+## Run teste
+
+In the project root.
+
+```
+phpunit
+```
+. Obs: Required have installed the PHPUnit 
+
 ## Examples:
 #### BRL <Brazilian currency>
 
