@@ -1,0 +1,21 @@
+{
+    "name": "diego-brocanelli/money_to_word",
+    "description": "Convert money into text",
+    "license": "BSD 3-clause",
+    "version":"1.0",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Diego Brocanelli",
+            "email": "contato@diegobrocanelli.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.8"
+    },
+    "autoload": {
+        "psr-4":{
+            "Money\\Convert\\":"src/Money/"
+        }
+    }
+}
