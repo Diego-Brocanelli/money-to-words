@@ -3,7 +3,7 @@
 The goal is to convert the numbers (string) set to text.
 
 ## Author
-. [_Diego Brocanelli_](https://github.com/Diego-Brocanelli)
+. [_Diego Brocanelli_](http://diegobrocanelli.com.br/)
 
 ## Requirements 
 
