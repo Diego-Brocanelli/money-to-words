@@ -2,6 +2,8 @@
 
 namespace Money\Convert\Validation;
 
+use Money\Convert\i18n\BRL;
+
 /**
  * Validations money value.
  * 
@@ -11,44 +13,28 @@ class Validations
 {
     /**
      * Verify is money is valid.
-     * 
-     * @param string $money
-     * @param Object $lang
-     * 
-     * @return Boolean description 
      */
-    public function isValid($money, $lang)
+    public function isValid(string $money, BRL $lang): bool
     {
         return $this->rules($money, $lang);
     }
 
     /**
      * Rules for validations.
-     * 
-     * @param string $money 
-     * @param Object $lang 
-     * @return boolean
      */
-    private function rules($money, $lang)
+    private function rules(string $money, BRL $lang): bool
     {
         $result = true;
-        
-        if(!is_string($money)){
+
+        if( empty($money) ){
             $result = false;
         }
 
-        if(empty($money)){
+        if( $money == 0 ){
             $result = false;
         }
-        
-        if($money == 0){
-            $result = false;
-        }
-
-        $number = $money;
 
         foreach ($lang->specialCharacter as $string) {
-            
             $money = str_ireplace($string, '', $money);
         }
 

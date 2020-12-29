@@ -1,67 +1,58 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Money\Convert\i18n;
+
+use Money\Convert\i18n\I18nInterface;
 
 /**
  * Coin BRL <Brazil>
  *
  * @author Diego Brocanelli <contato@diegobrocanelli.com.br>
  */
-class BRL
+class BRL implements I18nInterface
 {
     /**
      * For filtering
-     * @var array
      */
-    public $specialCharacter = array('R$','r$', '$', ',', '(', ')', '#', ' ');
+    public array $specialCharacter = ['R$','r$', '$', ',', '(', ')', '#', ' '];
 
     /**
      * Divisor money string
-     * 
-     * @var string
      */
-    public $divisor = 'e';
+    public string $divisor = 'e';
 
     /**
      * Separetor money string
-     * 
-     * @var string
      */
-    public $separetorDe = 'de';
+    public string $separetorDe = 'de';
     
     /**
      * Plural and singular, dollar.
-     * 
-     * @var array
      */
-    public $realType = array(
+    public array $realType = [
         'real',
         'reais'
-    );
+    ];
 
     /**
      * Plural and singular, cents.
-     * 
-     * @var array
      */
-    public $centsType = array(
+    public array $centsType = [
         'centavo',
         'centavos'
-    );
+    ];
 
     /**
      * Coin country
-     * 
-     * @var string
      */
-    public $lang = "pt-BR";
+    public string $lang = "pt-BR";
 
     /**
      * List Three Digits Or More in money
-     * 
-     * @return array
      */
-    public $listThreeDigitsOrMore = array(
+    public array $listThreeDigitsOrMore = [
         '1000000',
         '1000000000',
         '1000000000000',
@@ -74,5 +65,5 @@ class BRL
         '1000000000000000000000000000000000',
         '1000000000000000000000000000000000000',
         '1000000000000000000000000000000000000000',
-    );
+    ];
 }

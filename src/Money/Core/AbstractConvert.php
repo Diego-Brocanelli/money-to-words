@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Money\Convert\Core;
 
 use Money\Convert\Core\ConvertInterface;
 use Money\Convert\Exceptions\LangException;
 use Money\Convert\Exceptions\MoneyException;
 use Money\Convert\Validation\Validations;
+
+use Money\Convert\i18n\BRL;
 
 /**
  * @author Diego Brocanelli <contato@diegobrocanelli.com.br>
@@ -14,24 +18,10 @@ abstract class AbstractConvert implements ConvertInterface
 {
     const MONEY_NOT_VALID = 'This money not valid.';
 
-    /**
-     * Number for treatment
-     * 
-     * @var string
-     */
-    protected $number;
-    
-    /**
-     * Object Lang Base
-     * 
-     * @var MoneyConvert\i18n
-     */
-    protected $langConvert;
-    
-    /**
-     * @param string $lang
-     */
-    public function __construct($lang) 
+    protected string $number;
+    protected BRL $langConvert;
+
+    public function __construct( string $lang) 
     {
         $path = __DIR__.'/../i18n/'.$lang.'.php';
 
@@ -48,11 +38,9 @@ abstract class AbstractConvert implements ConvertInterface
     /**
      * Convert numbers to words.
      * 
-     * @param string $money
-     * @return string
      * @throws MoneyException
      */
-    public function convert($money)
+    public function convert(string $money): string
     {
         $this->number = $money;
         $validations  = new Validations();
@@ -68,21 +56,16 @@ abstract class AbstractConvert implements ConvertInterface
 
     /**
      * Explode float number in two slices.
-     * 
-     * @return array
      */
-    private function explodeData()
+    private function explodeData(): array
     {
         return explode('.', $this->number);
     }
     
     /**
      * Convert number in word.
-     * 
-     * @param  float $money
-     * @return string
      */
-    private function convertToWord($number)
+    private function convertToWord(string $number): string
     {
         $numberFormatted = new \NumberFormatter($this->langConvert->lang, \NumberFormatter::SPELLOUT);
         $result          = $numberFormatted->format($number);
@@ -92,13 +75,8 @@ abstract class AbstractConvert implements ConvertInterface
 
     /**
      * Adding divider between strings
-     * 
-     * @param  string $number
-     * @param  string $type   'real' or 'cents'
-     * 
-     * @return string
      */
-    private function divisor($number, $type)
+    private function divisor( string $number, string $type): string
     {
         $indice = 0;
 
@@ -117,19 +95,15 @@ abstract class AbstractConvert implements ConvertInterface
 
     /**
      * Words mount
-     * 
-     * @param  array $data
-     * @return string
      */
-    private function mountToWord($data)
+    private function mountToWord(array $data): string
     {
         $result = '';
         
         if((int)$data[0] > 0 ){
-            $real     = $this->convertToWord($data[0]);
+            $real = $this->convertToWord($data[0]);
 
             $separator = ' ';
-            // if((int)$data[0] >= 1000000){
             if(in_array((int)$data[0], $this->langConvert->listThreeDigitsOrMore)){
                 $separator = ' '.$this->langConvert->separetorDe.' ';
             }

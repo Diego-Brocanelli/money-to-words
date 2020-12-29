@@ -9,9 +9,6 @@ interface ConvertInterface
 {
     /**
      * Convert money to words
-     * 
-     * @param string $money
-     * @return string
      */
-    public function convert($money);
+    public function convert(string $money): string;
 }
