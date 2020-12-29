@@ -50,20 +50,20 @@ use Money\Convert\Convert\MoneyToWords;
 
 $money = new MoneyToWords('BRL');
 
-$money->convert(0.1); // output: um centavo
-$money->convert(0.10); // output: dez centavos
-$money->convert('01.00'); // output: um real
-$money->convert('125.67'); // output: cento e vinte e cinco reais e sessenta e sete centavos
-$money->convert('8563754.01'); // output: oito milhões e quinhentos e sessenta e três mil e setecentos e cinquenta e quatro reais e um centavo
-$money->convert('01.01'); // output: um real e um centavo
-$money->convert('0.01'); // output: um centavo
-$money->convert('111.11'); // output: cento e onze reais e onze centavos
-$money->convert('25'); // output: vinte e cinco reais
-$money->convert('1.25'); // output: um real e vinte e cinco centavos
-$money->convert('7596.37'); // output: sete mil e quinhentos e noventa e seis reais e trinta e sete centavos
-$money->convert('1000000000'); // output: um bilhão de reais 
-$money->convert('1829672.99'); // output: um milhão e oitocentos e vinte e nove mil e seiscentos e setenta e dois reais e noventa e nove centavos 
-$money->convert('0.50'); // output:  cinquenta centavos
+$money->convert(0.1); // output: dez centavo
+$money->convert(0.01); // output: um centavo
+$money->convert(0.05); // output:  cinco centavos
+$money->convert(1.0); // output: um real
+$money->convert(125.67); // output: cento e vinte e cinco reais e sessenta e sete centavos
+$money->convert(8563754.01); // output: oito milhões e quinhentos e sessenta e três mil e setecentos e cinquenta e quatro reais e um centavo
+$money->convert(1.01); // output: um real e um centavo
+$money->convert(111.11); // output: cento e onze reais e onze centavos
+$money->convert(25.0); // output: vinte e cinco reais
+$money->convert(1.25); // output: um real e vinte e cinco centavos
+$money->convert(7596.37); // output: sete mil e quinhentos e noventa e seis reais e trinta e sete centavos
+$money->convert(1000000000); // output: um bilhão de reais 
+$money->convert(1829672.99); // output: um milhão e oitocentos e vinte e nove mil e seiscentos e setenta e dois reais e noventa e nove centavos 
+$money->convert(0.5); // output: cinquenta centavos
 ```
 
 ## Author

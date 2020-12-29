@@ -32,6 +32,7 @@ class MoneyToWordsTest extends TestCase
     public function convertProvider(): array
     {
         return [
+            [1, 'um real'],
             [0.01, 'um centavo'],
             [0.1, 'dez centavos'],
             [0.89, 'oitenta e nove centavos'],
