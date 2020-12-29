@@ -46,9 +46,10 @@ composer require diego-brocanelli/money_to_word dev-main
 
 require_once __DIR__.'/vendor/autoload.php';
 
-use Money\Convert\Convert\MoneyToWords;
+use Money\Coins\BRL;
+use Money\MoneyToWords;
 
-$money = new MoneyToWords('BRL');
+$money = new MoneyToWords(new BRL());
 
 $money->convert(0.1); // output: dez centavo
 $money->convert(0.01); // output: um centavo
