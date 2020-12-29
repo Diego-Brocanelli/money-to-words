@@ -21,7 +21,7 @@ composer install
 In the project root.
 
 ```
-composer test
+composer tests
 ```
 
 ## Run code analysis
