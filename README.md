@@ -50,6 +50,8 @@ use Money\Convert\Convert\MoneyToWords;
 
 $money = new MoneyToWords('BRL');
 
+$money->convert(0.1); // output: um centavo
+$money->convert(0.10); // output: dez centavos
 $money->convert('01.00'); // output: um real
 $money->convert('125.67'); // output: cento e vinte e cinco reais e sessenta e sete centavos
 $money->convert('8563754.01'); // output: oito milhões e quinhentos e sessenta e três mil e setecentos e cinquenta e quatro reais e um centavo

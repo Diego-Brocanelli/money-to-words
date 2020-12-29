@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4":{
-            "Money\\Convert\\":"src/Money/"
+            "Money\\":"src/"
         }
     },
     "scripts":{
