@@ -2,29 +2,41 @@
 
 The goal is to convert the numbers (string) set to text.
 
-## Author
-. [_Diego Brocanelli_](http://diegobrocanelli.com.br/)
 
-## Requirements 
 
-. PHP >= 5.3.8 
+## Requirements
 
-. [INTL PHP Extension](http://php.net/manual/pt_BR/book.intl.php)
+. PHP >= 7.4;
 
-## Install package
+. [ext-intl](http://php.net/manual/pt_BR/book.intl.php).
+
+## Install
 
 ```
-composer require diego-brocanelli/money_to_word dev-master
+composer install
 ```
 
-## Run teste
+## Run tests
 
 In the project root.
 
 ```
-phpunit
+composer test
 ```
-. Obs: Required have installed the PHPUnit 
+
+## Run code analysis
+
+In the project root.
+
+```
+composer analyse
+```
+
+## How to use
+
+```
+composer require diego-brocanelli/money_to_word dev-main
+```
 
 ## Examples:
 #### BRL <Brazilian currency>
@@ -52,5 +64,10 @@ $money->convert('1829672.99'); // output: um milhão e oitocentos e vinte e nove
 $money->convert('0.50'); // output:  cinquenta centavos
 ```
 
-#### License
-. [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause)
+## Author
+<a href="https://www.diegobrocanelli.com.br/">
+<img src="https://avatars2.githubusercontent.com/u/4108889?s=460&v=4" width="150px">
+</a>
+
+### License
+[BSD-3-Clause](LICENSE)
