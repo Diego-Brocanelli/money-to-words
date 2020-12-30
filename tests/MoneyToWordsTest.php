@@ -37,7 +37,7 @@ class MoneyToWordsTest extends TestCase
         $integerValues = include __DIR__ . '/data_provider_integer_values.php';
         $floatValues   = include __DIR__ . '/data_provider_float_values.php';
         $mergedValues  = [...$integerValues,...$floatValues];
-        //var_dump($mergedValues);die;
+
         return $mergedValues;
     }
 }
