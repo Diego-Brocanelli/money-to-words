@@ -13,6 +13,8 @@ class BRL implements I18nInterface
 {
     /**
      * For filtering
+     *
+     * @return array<int,string>
      */
     public function specialCharacter(): array
     {
@@ -67,6 +69,8 @@ class BRL implements I18nInterface
 
     /**
      * List Three Digits Or More in money
+     *
+     * @return array<int,string>
      */
     public function listThreeDigitsOrMore(): array
     {
