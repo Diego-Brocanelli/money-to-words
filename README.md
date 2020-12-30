@@ -38,6 +38,14 @@ In the project root.
 composer phpcs
 ```
 
+## Run Tests, analysis and PHP Code Sniffer
+
+In the project root.
+
+```
+composer all
+```
+
 ## How to use
 
 ```
