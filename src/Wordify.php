@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Money;
 
@@ -20,7 +20,7 @@ class Wordify
         $this->coin = $coin;
     }
 
-    public function translateToSentence( float $money ): string
+    public function translateToSentence(float $money): string
     {
         $data   = explode('.', (string)$money);
         $before = $data[0];
@@ -33,43 +33,25 @@ class Wordify
             throw new InvalidArgumentException('The value of cents is invalid, cannot exceed 99.');
         }
 
-        $result = '';
-
-        if ($before > 0) {
-            $real = $this->translateToWord($before);
-
-            $separator = ' ';
-            if (in_array($before, $this->coin->listThreeDigitsOrMore())) {
-                $separator = ' '.$this->coin->separatorDe().' ';
-            }
-
-            $textReal = $this->divider( (int)$before, 'real');
-
-            $result = $real .$separator. $textReal;
-        }
+        $result = $this->wordifyBefore($before);
 
         if ($before > 0 && $cents > 0) {
-            $result .= ' '. $this->coin->divisor() . ' ';
+            $result .= ' ' . $this->coin->divisor() . ' ';
         }
 
-        if ($cents > 0) {
-            $cents         = ((int)$cents < 10) ? str_pad($cents, 2, '0') : $cents;
-            $textCents     = $this->translateToWord($cents);
-            $sentenceCents = $this->divider((int)$cents, 'cents');
-            $result       .= $textCents .' '.$sentenceCents;
-        }
+        $result .= $this->wordifyCents($cents);
 
         return $result;
     }
 
-    private function translateToWord( string $number): string
+    private function translateToWord(string $number): string
     {
         $numberFormatted = new NumberFormatter($this->coin->lang(), NumberFormatter::SPELLOUT);
 
         return $numberFormatted->format($number);
     }
 
-    private function divider( int $number, string $type): string
+    private function divider(int $number, string $type): string
     {
         $singular = $number > 1 ? false : true;
 
@@ -78,5 +60,36 @@ class Wordify
         }
 
         return $this->coin->realType($singular);
+    }
+
+    private function wordifyBefore($before): string
+    {
+        if ($before > 0) {
+            $real = $this->translateToWord($before);
+
+            $separator = ' ';
+            if (in_array($before, $this->coin->listThreeDigitsOrMore())) {
+                $separator = ' ' . $this->coin->separatorDe() . ' ';
+            }
+
+            $textReal = $this->divider((int)$before, 'real');
+
+            return $real . $separator . $textReal;
+        }
+
+        return '';
+    }
+
+    private function wordifyCents($cents): string
+    {
+        if ($cents <= 0) {
+            return '';
+        }
+
+        $cents         = ((int)$cents < 10) ? str_pad($cents, 2, '0') : $cents;
+        $textCents     = $this->translateToWord($cents);
+        $sentenceCents = $this->divider((int)$cents, 'cents');
+
+        return "{$textCents} {$sentenceCents}";
     }
 }
