@@ -11,6 +11,8 @@ interface I18nInterface
 {
     /**
      * For filtering
+     *
+     * @return array<int,string>
      */
     public function specialCharacter(): array;
 
@@ -41,6 +43,8 @@ interface I18nInterface
 
     /**
      * List Three Digits Or More in money
+     *
+     * @return array<int,string>
      */
     public function listThreeDigitsOrMore(): array;
 }
