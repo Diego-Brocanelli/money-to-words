@@ -39,7 +39,7 @@ class Wordify
             $result .= ' ' . $this->coin->divisor() . ' ';
         }
 
-        $result .= $this->wordifyCents($cents);
+        $result .= $this->wordifyCents((string)$cents);
 
         return $result;
     }
@@ -62,7 +62,7 @@ class Wordify
         return $this->coin->realType($singular);
     }
 
-    private function wordifyBefore($before): string
+    private function wordifyBefore(string $before): string
     {
         if ($before > 0) {
             $real = $this->translateToWord($before);
@@ -80,14 +80,14 @@ class Wordify
         return '';
     }
 
-    private function wordifyCents($cents): string
+    private function wordifyCents(string $cents): string
     {
         if ($cents <= 0) {
             return '';
         }
 
-        $cents         = ((int)$cents < 10) ? str_pad($cents, 2, '0') : $cents;
-        $textCents     = $this->translateToWord($cents);
+        $cents         = ($cents < 10) ? str_pad((string)$cents, 2, '0') : $cents;
+        $textCents     = $this->translateToWord((string)$cents);
         $sentenceCents = $this->divider((int)$cents, 'cents');
 
         return "{$textCents} {$sentenceCents}";
