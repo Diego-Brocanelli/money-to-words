@@ -2,8 +2,6 @@
 
 The goal is to convert the numbers (string) set to text.
 
-
-
 ## Requirements
 
 . PHP >= 7.4;
@@ -32,6 +30,14 @@ In the project root.
 composer analyse
 ```
 
+## Run PHP Code Sniffer
+
+In the project root.
+
+```
+composer phpcs
+```
+
 ## How to use
 
 ```
@@ -44,7 +50,7 @@ composer require diego-brocanelli/money_to_word dev-main
 ```php
 <?php
 
-require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use Money\Coins\BRL;
 use Money\MoneyToWords;
