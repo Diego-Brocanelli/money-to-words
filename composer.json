@@ -20,10 +20,12 @@
     },
     "scripts":{
         "tests":["vendor/bin/phpunit --testdox --color tests"],
-        "analyse":["vendor/bin/phpstan analyse src tests --level=4"]
+        "analyse":["vendor/bin/phpstan analyse src tests --level=4"],
+        "phpcs":["vendor/bin/phpcs --colors src tests"]
     },
     "require-dev": {
         "phpunit/phpunit": "10.0.x-dev",
-        "phpstan/phpstan": "0.12.x-dev"
+        "phpstan/phpstan": "0.12.x-dev",
+        "squizlabs/php_codesniffer": "4.0.x-dev"
     }
 }
