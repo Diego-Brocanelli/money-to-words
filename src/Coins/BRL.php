@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Money\Coins;
 
@@ -38,7 +38,7 @@ class BRL implements I18nInterface
 
     public function realType(bool $singular): string
     {
-        if($singular){
+        if ($singular) {
             return 'real';
         }
 
@@ -50,7 +50,7 @@ class BRL implements I18nInterface
      */
     public function centsType(bool $singular): string
     {
-        if($singular){
+        if ($singular) {
             return 'centavo';
         }
 
