@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "ext-intl":"*"
     },
     "autoload": {
         "psr-4":{
@@ -20,8 +21,10 @@
     },
     "scripts":{
         "tests":["vendor/bin/phpunit --testdox --color tests"],
-        "analyse":["vendor/bin/phpstan analyse src tests --level=4"],
-        "phpcs":["vendor/bin/phpcs --colors src tests"]
+        "analyse":["vendor/bin/phpstan analyse src --level=8"],
+        "phpcs":["vendor/bin/phpcs --colors --standard=PSR1,PSR12 src"],
+        "phpcbf":["vendor/bin/phpcs --colors --standard=PSR1,PSR12 src"],
+        "all":["@tests", "@analyse", "@phpcs"]
     },
     "require-dev": {
         "phpunit/phpunit": "10.0.x-dev",
